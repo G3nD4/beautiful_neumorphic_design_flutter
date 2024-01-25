@@ -90,8 +90,8 @@ abstract class NeumorphicWidgetsBuilder {
     required IconData iconData,
   }) {
     return buildBeautyContainer(
-      width: 150,
-      height: 100,
+      width: 130,
+      height: 130,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
         child: Column(
@@ -132,7 +132,7 @@ abstract class NeumorphicWidgetsBuilder {
 class BeautySwitch extends StatefulWidget {
   final bool initValue;
 
-  const BeautySwitch({super.key, required this.initValue});
+  const BeautySwitch({required this.initValue});
 
   @override
   State<BeautySwitch> createState() => _BeautySwitchState();

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:new_design_test/row_icon.dart';
+import 'package:new_design_test/slider.dart';
+import 'package:new_design_test/text_row.dart';
 import 'package:new_design_test/text_styles.dart';
 import 'package:new_design_test/widgets.dart';
 
@@ -10,7 +12,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp();
 
   // This widget is the root of your application.
   @override
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  const MyHomePage();
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -40,8 +42,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool isPressed = false;
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -71,65 +71,88 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            NeumorphicWidgetsBuilder.buildBeautyContainer(
-              width: 224,
-              height: 224,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  NeumorphicWidgetsBuilder.buildCircleBeautyContainer(
-                    width: 100,
-                    height: 100,
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromARGB(255, 220, 223, 227),
-                            spreadRadius: -10.0,
-                          )
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.face_2_rounded,
-                        color: Colors.black,
-                        size: 48,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 24.0),
-                  const Text(
-                    'Hi, Manav!',
-                    style: mainTextStyle,
-                  ),
-                  const Text(
-                    'manavik2@gmail.com',
-                    style: smallSecondaryTextStyle,
-                  ),
-                ],
-              ),
+            Container(
+                decoration: BoxDecoration(boxShadow: [
+                  const BoxShadow(
+                      spreadRadius: -10, blurRadius: 10, color: mainColor),
+                ]),
+                width: 400,
+                child: GradientSliderWidget()),
+            SizedBox(
+              height: 50,
             ),
-            const SizedBox(width: 24),
-            Column(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                NeumorphicWidgetsBuilder.buildFunctionalBeautyContainer(
-                  text: 'WI-FI',
-                  iconData: Icons.wifi,
+                NeumorphicWidgetsBuilder.buildBeautyContainer(
+                  width: 150,
+                  height: 224,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      NeumorphicWidgetsBuilder.buildCircleBeautyContainer(
+                        width: 100,
+                        height: 100,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromARGB(255, 220, 223, 227),
+                                spreadRadius: -10.0,
+                              )
+                            ],
+                          ),
+                          child: const Icon(
+                            Icons.face_2_rounded,
+                            color: Colors.black,
+                            size: 48,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 24.0),
+                      const Text(
+                        'Hi, Manav!',
+                        style: mainTextStyle,
+                      ),
+                      const Text(
+                        'manavik2@gmail.com',
+                        style: smallSecondaryTextStyle,
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 24),
-                NeumorphicWidgetsBuilder.buildFunctionalBeautyContainer(
-                  text: 'Bluetooth',
-                  iconData: Icons.bluetooth,
+                const SizedBox(width: 24),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    NeumorphicWidgetsBuilder.buildFunctionalBeautyContainer(
+                      text: 'WI-FI',
+                      iconData: Icons.wifi,
+                    ),
+                    const SizedBox(height: 24),
+                    NeumorphicWidgetsBuilder.buildFunctionalBeautyContainer(
+                      text: 'Bluetooth',
+                      iconData: Icons.bluetooth,
+                    ),
+                  ],
                 ),
               ],
             ),
+              const SizedBox(
+              height: 20,
+            ),
+            const TextRow (),
+            const SizedBox(
+              height: 120,
+            ),
+            const RowIcon(),
           ],
         ),
       ),
