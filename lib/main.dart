@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:new_design_test/row_icon.dart';
 import 'package:new_design_test/slider.dart';
 import 'package:new_design_test/text_row.dart';
+import 'package:flutter/services.dart';
 import 'package:new_design_test/text_styles.dart';
 import 'package:new_design_test/widgets.dart';
 
@@ -46,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: mainColor,
       appBar: AppBar(
@@ -146,13 +150,100 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-              const SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            const TextRow (),
-            const SizedBox(
-              height: 120,
+            const TextRow(),
+            const SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: NeumorphicWidgetsBuilder.buildBeautyMusicContainer(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Color.fromRGBO(255, 255, 255, 80),
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      width: 280,
+                      height: 80,
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(50),
+                              bottomRight: Radius.circular(50)),
+                          color: mainColor),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(
+                              '01:45',
+                              style: TextStyle(
+                                  color: Colors.grey[600], fontSize: 15),
+                            ),
+                          ),
+                          Image.asset(
+                            'assets/sound.jpg',
+                            width: 150,
+                            height: 50,
+                            fit: BoxFit.fill,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(
+                              '02:59',
+                              style: TextStyle(
+                                  color: Colors.grey[600], fontSize: 15),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                width: size.width,
+                height: 80,
+              ),
             ),
+            SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: NeumorphicWidgetsBuilder.buildCircleBeautyMusicContainer(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Harrdy Sandhu', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                          Text('Kyo Ball Ay', style: TextStyle(fontSize: 14, color: Colors.grey[600]),),
+                        ],
+                      ),
+                      Image.asset('assets/rewind-button.png', scale: 25, color: Colors.grey[600],),
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.grey[600],
+                        ),
+                        child: Icon(Icons.play_arrow, color: Colors.white,),
+                      ),
+                      Image.asset('assets/rewind-button_right.png', scale: 25, color: Colors.grey[600],),
+                      Image.asset('assets/arrows-mix.png', scale: 25, color: Colors.grey[600],),
+                    ],
+                  ),
+                ),
+                width: size.width,
+                height: 80,
+              ),
+            ),
+            SizedBox(height: 24),
             const RowIcon(),
           ],
         ),

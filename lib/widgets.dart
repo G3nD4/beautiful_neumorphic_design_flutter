@@ -124,6 +124,86 @@ abstract class NeumorphicWidgetsBuilder {
     );
   }
 
+  static Widget buildBeautyMusicContainer({
+    Widget? child,
+    double width = 200,
+    double height = 200,
+  }) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        image: DecorationImage(image: AssetImage('assets/man.png'), alignment: Alignment.centerLeft, ),
+        borderRadius: BorderRadius.circular(50.0),
+        boxShadow: [
+          BoxShadow(
+            color: outerDarkShadowColor,
+            offset: Offset.fromDirection(0.785398, 5),
+            blurRadius: 8,
+          ),
+          const BoxShadow(color: mainColor),
+          BoxShadow(
+            color: outerLightShadowColor,
+            offset: Offset.fromDirection(3.926990, 5),
+            blurRadius: 8,
+          ),
+          BoxShadow(
+            color: innerLightShadowColor,
+            spreadRadius: 0.0,
+            offset: Offset.fromDirection(0.785398, 0),
+            blurRadius: 0.0,
+          ),
+          BoxShadow(
+            color: innerDarkShadowColor,
+            spreadRadius: -1.0,
+            offset: Offset.fromDirection(3.926990, 0),
+            blurRadius: 2.0,
+          ),
+        ],
+      ),
+      child: child,
+    );
+  }
+  static Widget buildCircleBeautyMusicContainer({
+    Widget? child,
+    double width = 200,
+    double height = 200,
+  }) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        boxShadow: [
+          BoxShadow(
+            color: outerDarkShadowColor,
+            offset: Offset.fromDirection(0.785398, 5),
+            blurRadius: 8,
+          ),
+          const BoxShadow(color: mainColor),
+          BoxShadow(
+            color: outerLightShadowColor,
+            offset: Offset.fromDirection(3.926990, 5),
+            blurRadius: 8,
+          ),
+          BoxShadow(
+            color: innerLightShadowColor,
+            spreadRadius: 0.0,
+            offset: Offset.fromDirection(0.785398, 0),
+            blurRadius: 0.0,
+          ),
+          BoxShadow(
+            color: innerDarkShadowColor,
+            spreadRadius: -1.0,
+            offset: Offset.fromDirection(3.926990, 0),
+            blurRadius: 2.0,
+          ),
+        ],
+      ),
+      child: child,
+    );
+  }
+
   static Widget buildBeautySwitch(bool value) {
     return BeautySwitch(initValue: value);
   }
