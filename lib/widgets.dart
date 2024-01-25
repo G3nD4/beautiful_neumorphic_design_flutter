@@ -1,7 +1,89 @@
 import 'package:flutter/material.dart';
 import 'package:new_design_test/text_styles.dart';
 
+import 'colors.dart';
+
 abstract class NeumorphicWidgetsBuilder {
+static Widget buildBeautyContainer({
+    Widget? child,
+    double width = 200,
+    double height = 200,
+  }) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30.0),
+        boxShadow: [
+          BoxShadow(
+            color: outerDarkShadowColor,
+            offset: Offset.fromDirection(0.785398, 5),
+            blurRadius: 8,
+          ),
+          const BoxShadow(color: mainColor),
+          BoxShadow(
+            color: outerLightShadowColor,
+            offset: Offset.fromDirection(3.926990, 5),
+            blurRadius: 8,
+          ),
+          BoxShadow(
+            color: innerLightShadowColor,
+            spreadRadius: -10.0,
+            offset: Offset.fromDirection(0.785398, 5),
+            blurRadius: 14.0,
+          ),
+          BoxShadow(
+            color: innerDarkShadowColor,
+            spreadRadius: -1.0,
+            offset: Offset.fromDirection(3.926990, 0),
+            blurRadius: 2.0,
+          ),
+        ],
+      ),
+      child: child,
+    );
+  }
+
+  static Widget buildCircleBeautyContainer({
+    Widget? child,
+    double width = 200,
+    double height = 200,
+  }) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: outerDarkShadowColor,
+            offset: Offset.fromDirection(0.785398, 5),
+            blurRadius: 8,
+          ),
+          BoxShadow(
+            color: outerLightShadowColor,
+            offset: Offset.fromDirection(3.926990, 5),
+            blurRadius: 8,
+          ),
+          const BoxShadow(color: mainColor),
+          BoxShadow(
+            color: innerLightShadowColor,
+            spreadRadius: -10.0,
+            offset: Offset.fromDirection(0.785398, 16),
+            blurRadius: 14.0,
+          ),
+          BoxShadow(
+            color: innerDarkShadowColor,
+            spreadRadius: -16.0,
+            offset: Offset.fromDirection(3.926990, 16),
+            blurRadius: 20.0,
+          ),
+        ],
+      ),
+      child: child,
+    );
+  }
+
   static Widget buildFunctionalBeautyContainer({
     required String text,
     required IconData iconData,
@@ -37,74 +119,6 @@ abstract class NeumorphicWidgetsBuilder {
           ],
         ),
       ),
-    );
-  }
-
-  static Widget buildCircleBeautyContainer({
-    Widget? child,
-    double width = 200,
-    double height = 200,
-  }) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black38,
-            offset: Offset.fromDirection(0.785398, 5),
-            blurRadius: 8,
-          ),
-          BoxShadow(
-            color: Colors.white,
-            offset: Offset.fromDirection(3.926990, 5),
-            blurRadius: 8,
-          ),
-          const BoxShadow(color: Color.fromARGB(255, 220, 223, 227)),
-          BoxShadow(
-            color: Colors.white70,
-            spreadRadius: -10.0,
-            offset: Offset.fromDirection(0.785398, 16),
-            blurRadius: 14.0,
-          ),
-          BoxShadow(
-            color: Colors.black12,
-            spreadRadius: -16.0,
-            offset: Offset.fromDirection(3.926990, 16),
-            blurRadius: 20.0,
-          ),
-        ],
-      ),
-      child: child,
-    );
-  }
-
-  static Widget buildBeautyContainer({
-    Widget? child,
-    double width = 200,
-    double height = 200,
-  }) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 220, 223, 227),
-        borderRadius: BorderRadius.circular(30.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black38,
-            offset: Offset.fromDirection(0.785398, 5),
-            blurRadius: 8,
-          ),
-          BoxShadow(
-            color: Colors.white,
-            offset: Offset.fromDirection(3.926990, 5),
-            blurRadius: 8,
-          ),
-        ],
-      ),
-      child: child,
     );
   }
 }

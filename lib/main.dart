@@ -3,6 +3,8 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:new_design_test/text_styles.dart';
 import 'package:new_design_test/widgets.dart';
 
+import 'colors.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -44,9 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 220, 223, 227),
+      backgroundColor: mainColor,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 220, 223, 227),
+        backgroundColor: mainColor,
         title: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
