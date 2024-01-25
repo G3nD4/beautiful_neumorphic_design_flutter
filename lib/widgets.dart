@@ -90,8 +90,8 @@ abstract class NeumorphicWidgetsBuilder {
     required IconData iconData,
   }) {
     return buildBeautyContainer(
-      width: 130,
-      height: 130,
+      width: 150,
+      height: 100,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
         child: Column(
