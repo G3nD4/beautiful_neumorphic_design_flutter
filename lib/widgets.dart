@@ -28,9 +28,9 @@ static Widget buildBeautyContainer({
           ),
           BoxShadow(
             color: innerLightShadowColor,
-            spreadRadius: -10.0,
-            offset: Offset.fromDirection(0.785398, 5),
-            blurRadius: 14.0,
+            spreadRadius: 0.0,
+            offset: Offset.fromDirection(0.785398, 0),
+            blurRadius: 0.0,
           ),
           BoxShadow(
             color: innerDarkShadowColor,
