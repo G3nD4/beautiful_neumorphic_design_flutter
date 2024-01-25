@@ -1,10 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:new_design_test/text_styles.dart';
 
 import 'colors.dart';
 
 abstract class NeumorphicWidgetsBuilder {
-static Widget buildBeautyContainer({
+  static Widget buildBeautyContainer({
     Widget? child,
     double width = 200,
     double height = 200,
@@ -70,7 +71,7 @@ static Widget buildBeautyContainer({
             color: innerLightShadowColor,
             spreadRadius: -10.0,
             offset: Offset.fromDirection(0.785398, 16),
-            blurRadius: 14.0,
+            blurRadius: 12.0,
           ),
           BoxShadow(
             color: innerDarkShadowColor,
@@ -92,7 +93,7 @@ static Widget buildBeautyContainer({
       width: 150,
       height: 100,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,10 +115,47 @@ static Widget buildBeautyContainer({
                   color: Colors.grey,
                   size: 14.0,
                 ),
+                buildBeautySwitch(false),
               ],
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  static Widget buildBeautySwitch(bool value) {
+    return BeautySwitch(initValue: value);
+  }
+}
+
+class BeautySwitch extends StatefulWidget {
+  final bool initValue;
+
+  const BeautySwitch({super.key, required this.initValue});
+
+  @override
+  State<BeautySwitch> createState() => _BeautySwitchState();
+}
+
+class _BeautySwitchState extends State<BeautySwitch> {
+  late bool value;
+
+  @override
+  void initState() {
+    value = widget.initValue;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: CupertinoSwitch(
+        value: value,
+        onChanged: ((newValue) {
+          value = newValue;
+          setState(() {});
+        }),
       ),
     );
   }
