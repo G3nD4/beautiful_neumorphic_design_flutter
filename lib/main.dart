@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:new_design_test/text_styles.dart';
+import 'package:new_design_test/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,39 +39,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool isPressed = false;
 
-  final TextStyle mainTextStyle = const TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: 16,
-  );
-
-  final TextStyle largeMainTextStyle = const TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: 18,
-  );
-
-  final TextStyle secondaryTextStyle = const TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 12,
-    color: Colors.grey,
-  );
-
-  final TextStyle largeSecondaryTextStyle = const TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 20,
-    color: Colors.grey,
-  );
-
-  final TextStyle smallSecondaryTextStyle = const TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 14,
-    color: Colors.grey,
-  );
-
-  final TextStyle boldSecondaryTextStyle = const TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: 12,
-    color: Colors.grey,
-  );
+  
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: const Color.fromARGB(255, 220, 223, 227),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 220, 223, 227),
-        title: Center(
+        title: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -103,14 +73,14 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            beautyContainer(
+            NeumorphicWidgetsBuilder.buildBeautyContainer(
               width: 224,
               height: 224,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  circleBeautyContainer(
+                  NeumorphicWidgetsBuilder.buildCircleBeautyContainer(
                     width: 100,
                     height: 100,
                     child: Container(
@@ -131,11 +101,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   const SizedBox(height: 24.0),
-                  Text(
+                  const Text(
                     'Hi, Manav!',
                     style: mainTextStyle,
                   ),
-                  Text(
+                  const Text(
                     'manavik2@gmail.com',
                     style: smallSecondaryTextStyle,
                   ),
@@ -147,114 +117,14 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                functionalBeautyContainer(
+                NeumorphicWidgetsBuilder.buildFunctionalBeautyContainer(
                   text: 'WI-FI',
                   iconData: Icons.wifi,
                 ),
                 const SizedBox(height: 24),
-                functionalBeautyContainer(
+                NeumorphicWidgetsBuilder.buildFunctionalBeautyContainer(
                   text: 'Bluetooth',
                   iconData: Icons.bluetooth,
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget beautyContainer(
-      {Widget? child, double width = 200, double height = 200}) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 220, 223, 227),
-        borderRadius: BorderRadius.circular(30.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black38,
-            offset: Offset.fromDirection(0.785398, 5),
-            blurRadius: 8,
-          ),
-          BoxShadow(
-            color: Colors.white,
-            offset: Offset.fromDirection(3.926990, 5),
-            blurRadius: 8,
-          ),
-        ],
-      ),
-      child: child,
-    );
-  }
-
-  Widget circleBeautyContainer(
-      {Widget? child, double width = 200, double height = 200}) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        // color: const Color.fromARGB(255, 220, 223, 227),
-        // borderRadius: BorderRadius.circular(30.0),
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black38,
-            offset: Offset.fromDirection(0.785398, 5),
-            blurRadius: 8,
-          ),
-          BoxShadow(
-            color: Colors.white,
-            offset: Offset.fromDirection(3.926990, 5),
-            blurRadius: 8,
-          ),
-          const BoxShadow(color: Color.fromARGB(255, 220, 223, 227)),
-          BoxShadow(
-            color: Colors.white70,
-            spreadRadius: -10.0,
-            offset: Offset.fromDirection(0.785398, 16),
-            blurRadius: 14.0,
-          ),
-          BoxShadow(
-            color: Colors.black12,
-            spreadRadius: -16.0,
-            offset: Offset.fromDirection(3.926990, 16),
-            blurRadius: 20.0,
-          ),
-        ],
-      ),
-      child: child,
-    );
-  }
-
-  Widget functionalBeautyContainer(
-      {required String text, required IconData iconData}) {
-    return beautyContainer(
-      width: 150,
-      height: 100,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              text,
-              style: largeMainTextStyle,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  'off',
-                  style: boldSecondaryTextStyle,
-                ),
-                const SizedBox(width: 4.0),
-                Icon(
-                  iconData,
-                  color: Colors.grey,
-                  size: 14.0,
                 ),
               ],
             ),
